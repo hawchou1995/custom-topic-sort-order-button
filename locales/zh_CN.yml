@@ -1,1 +1,27 @@
 
+zh_CN:
+  theme_metadata:
+    settings:
+        custom_topic_sort_order_items: 
+          description: "配置自定义话题排序菜单的项目。"   
+          schema:
+            properties:
+              icon: 
+                label: "图标"
+                description: "Discourse 图标集中的图标名称"
+              label:
+                label: "标签"
+                description: '翻译键值 (请参考 <a href="/admin/customize/site_texts">站点文本</a>)'
+              action:
+                label: "动作"
+                description: "排序动作的标识符"
+        custom_topic_sort_order_button_icon: "更改话题排序按钮的图标。"
+        
+        # [新增] 设置项的中文翻译
+        show_button_label: "在排序按钮上显示文字标签。"
+        custom_topic_sort_order_button_text: "自定义按钮的文字内容。若留空，将使用默认的系统翻译。"
+        
+        hide_label_on_mobile: "在移动端视图下隐藏排序按钮的文字标签。"
+        ascending_icon: "更改升序状态的指示图标。"
+        descending_icon: "更改降序状态的指示图标。"
+        svg_icons: "此主题组件中使用的 FontAwesome 6 图标列表"
