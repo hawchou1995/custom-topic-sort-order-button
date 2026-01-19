@@ -24,7 +24,6 @@ export default class CustomTopicSortOrder extends Component {
   @action
   updateSortFromUrl() {
     const queryParams = new URLSearchParams(window.location.search);
-
     if (queryParams.has("order") && queryParams.has("ascending")) {
       this.currentOrder = queryParams.get("order");
       this.ascending = queryParams.get("ascending") === "true";
@@ -46,7 +45,6 @@ export default class CustomTopicSortOrder extends Component {
     const queryParams = new URLSearchParams(window.location.search);
     queryParams.set("ascending", this.ascending ? "true" : "false");
     queryParams.set("order", orderType);
-
     DiscourseURL.routeTo(window.location.pathname + "?" + queryParams.toString());
   }
 
@@ -61,13 +59,24 @@ export default class CustomTopicSortOrder extends Component {
         @arrow={{true}}
         @identifier="custom-topic-sortable"
         @icon={{settings.custom_topic_sort_order_button_icon}}
-        @label={{i18n "js.search.sort_by"}}
+        
+        {{!-- 
+            [关键修改] 标签逻辑：
+            1. 检查 settings.show_button_label 是否开启
+            2. 若开启，检查是否有 settings.custom_topic_sort_order_button_text
+               - 有则显示自定义文本
+               - 无则显示默认 i18n 翻译
+            3. 若关闭，返回 null (DMenu 将只显示图标)
+        --}}
+        @label={{if settings.show_button_label (if settings.custom_topic_sort_order_button_text settings.custom_topic_sort_order_button_text (i18n "js.search.sort_by"))}}
+        
         @closeOnScroll={{true}}
         id="topic-sortable"
         class="icon btn-default"
         @modalForMobile={{false}}
         @onRegisterApi={{this.onRegisterApi}}
       >
+       
         <:content>
           <DropdownMenu as |dropdown|>
             {{#each settings.custom_topic_sort_order_items as |item|}}
