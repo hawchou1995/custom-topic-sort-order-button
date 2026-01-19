@@ -15,6 +15,11 @@ en:
                 label: "Action"
                 description: "Sorting action identifier"
         custom_topic_sort_order_button_icon: "Change the topic sort order button icon."
+        
+        # [新增] 设置描述
+        show_button_label: "Show the text label on the sort button."
+        custom_topic_sort_order_button_text: "Custom text for the button label. Leave empty to use the default translation."
+        
         hide_label_on_mobile: "Hide the topic sort order button label."
         ascending_icon: "Change the item ascending icon."
         descending_icon: "Change the item descending icon."
