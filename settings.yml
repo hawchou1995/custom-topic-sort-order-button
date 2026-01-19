@@ -1,13 +1,21 @@
 custom_topic_sort_order_items:
   type: objects
-  default: 
-    [
-      { "icon": clock, "label": js.activity, "action": activity },
-      { "icon": calendar, "label": js.created, "action": created },
-      { "icon": comments, "label": js.posts, "action": posts },
-      { "icon": heart, "label": js.likes, "action": likes },
-      { "icon": eye, "label": js.views, "action": views },
-    ]
+  default:
+    - icon: "clock"
+      label: "js.activity"
+      action: "activity"
+    - icon: "calendar"
+      label: "js.created"
+      action: "created"
+    - icon: "comments"
+      label: "js.posts"
+      action: "posts"
+    - icon: "heart"
+      label: "js.likes"
+      action: "likes"
+    - icon: "eye"
+      label: "js.views"
+      action: "views"
   schema:
     name: item
     identifier: action
@@ -33,15 +41,27 @@ custom_topic_sort_order_items:
 custom_topic_sort_order_button_icon: 
   default: "sort"
   type: "string"
+
+show_button_label:
+  default: true
+  type: "bool"
+
+custom_topic_sort_order_button_text:
+  default: ""
+  type: "string"
+
 hide_label_on_mobile: 
   default: true
   type: "bool"
+
 ascending_icon: 
   default: "arrow-down-wide-short"
   type: "string"
+
 descending_icon: 
   default: "arrow-down-short-wide"
   type: "string"
+
 svg_icons: 
   default: "sort|arrow-down-short-wide|arrow-down-wide-short|calendar"
   type: "list"
