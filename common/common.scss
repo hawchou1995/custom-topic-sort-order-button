@@ -1,20 +1,59 @@
-.custom-topic-sortable-content {
-  .sortable-dd-item {
-    .d-button-label {
-      margin-right: auto;
-    }
-  }
-}
+custom_topic_sort_order_items:
+  type: objects
+  default: 
+    [
+      { "icon": clock, "label": js.activity, "action": activity },
+      { "icon": calendar, "label": js.created, "action": created },
+      { "icon": comments, "label": js.posts, "action": posts },
+      { "icon": heart, "label": js.likes, "action": likes },
+      { "icon": eye, "label": js.views, "action": views },
+    ]
+  schema:
+    name: item
+    identifier: action
+    properties:
+      icon:
+        type: string
+      label:
+        type: string
+        required: true
+      action:
+        type: enum
+        choices:
+          - activity
+          - created
+          - posts
+          - likes
+          - views
+          - op_likes
+          - posters
+          - category
+          - votes
 
-@if $hide-label-on-mobile == "true" {
-  .mobile-view {
-    .custom-topic-sortable-trigger {
-      .d-icon {
-        margin-right: 0;
-      }
-      .d-button-label {
-        display: none;
-      }
-    }
-  }
-}
+custom_topic_sort_order_button_icon: 
+  default: "sort"
+  type: "string"
+
+# [新增] 控制是否显示按钮文字
+show_button_label:
+  default: true
+  type: "bool"
+
+# [新增] 自定义按钮文字内容
+custom_topic_sort_order_button_text:
+  default: ""
+  type: "string"
+
+hide_label_on_mobile: 
+  default: true
+  type: "bool"
+ascending_icon: 
+  default: "arrow-down-wide-short"
+  type: "string"
+descending_icon: 
+  default: "arrow-down-short-wide"
+  type: "string"
+svg_icons: 
+  default: "sort|arrow-down-short-wide|arrow-down-wide-short|calendar"
+  type: "list"
+  list_type: "compact"
